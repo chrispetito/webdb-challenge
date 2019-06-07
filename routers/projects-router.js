@@ -20,4 +20,12 @@ router.post('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+    db.getProjectById(req.params.id).then(project => {
+        res.status(200).json(project)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
+
 module.exports = router;

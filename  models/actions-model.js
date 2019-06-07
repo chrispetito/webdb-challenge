@@ -9,6 +9,7 @@ function getActions() {
     return db('actions')
 }
 
+
 function add(action) {
     return db("actions").insert(action);
   }
