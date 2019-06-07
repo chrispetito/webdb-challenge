@@ -12,9 +12,17 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+    db.getActionById(req.params.id).then(action => {
+        res.status(200).json(action)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
+
 router.post('/', (req, res) => {
     db.add(req.body).then(action => {
-        res.status(201).json(action)
+        res.status(201).json({ message: 'Action added succesfully!'})
     }).catch(err => {
         res.status(500).json(err)
     })

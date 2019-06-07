@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     db.add(req.body).then(project => {
-        res.status(201).json(project)
+        res.status(201).json({message: `Project added successfully!`})
     }).catch(err => {
         res.status(500).json(err)
     })
