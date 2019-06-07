@@ -28,4 +28,12 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res) => {
+    db.update(req.params.id, req.body).then(project => {
+        res.status(200).json(project)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
+
 module.exports = router;

@@ -3,7 +3,8 @@ const db = require("../dbconfig");
 module.exports = {
   getProjects,
   add,
-  getProjectById
+  getProjectById,
+  update
 };
 
 function getProjects() {
@@ -16,9 +17,20 @@ async function getProjectById(id) {
     .first();
   const actions = await db("projects")
     .join("actions", "actions.project_id", "projects.id")
-    .select('actions.id', 'actions.description', 'actions.notes', 'actions.completed')
+    .select(
+      "actions.id",
+      "actions.description",
+      "actions.notes",
+      "actions.completed"
+    )
     .where("projects.id", id);
   return { ...project, actions };
+}
+
+function update(id, changes) {
+  return db("projects")
+    .where({ id })
+    .update(changes);
 }
 
 function add(project) {
