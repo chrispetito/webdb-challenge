@@ -1,6 +1,7 @@
 import React from 'react'
 import { getProjects } from '../actions'
 import { connect } from 'react-redux'
+import { Link, BrowserRouter as Router } from 'react-router-dom'
 
 class ProjectBoard extends React.Component {
     componentDidMount() {
@@ -9,11 +10,12 @@ class ProjectBoard extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className='project-container'>
                 {this.props.projects.map(project => {
                     return(
-                        <div>
+                        <div className='project-card' to={`/projects/${project.id}`} key={project.id}>
                             <h1>{project.name}</h1>
+                            <h4>{project.description}</h4>
                             </div>
                     )
                 })}

@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+.project-card {
+  border: 1px solid red;
+  width: 500px;
+}
+.project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
