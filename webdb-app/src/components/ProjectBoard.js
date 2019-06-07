@@ -1,7 +1,7 @@
 import React from 'react'
 import { getProjects } from '../actions'
 import { connect } from 'react-redux'
-import { Link, BrowserRouter as Router } from 'react-router-dom'
+// import { Link, BrowserRouter as Router } from 'react-router-dom'
 
 class ProjectBoard extends React.Component {
     componentDidMount() {
